@@ -1,7 +1,7 @@
 CD-DB-GUI-Application
 =====================
 Overall reason for this code:
-Java based application to keep track of my CD collection and to show people my coding skills. :D
+Java based application to keep track of my CD collection and to show people my coding skills. 
 
 NOTES
 =====

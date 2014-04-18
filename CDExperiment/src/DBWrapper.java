@@ -4,7 +4,7 @@
  * @version 1.0
  * 
  * Description:
- *   To drive...
+ *   To drive...Database nonsense
  */
 public class DBWrapper {
 

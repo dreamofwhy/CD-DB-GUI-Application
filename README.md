@@ -7,5 +7,3 @@ NOTES
 =====
 This code was written using Java 6 with Eclipse Kepler release 2.  
 The sql to create the MySQL database is in the Database directory.
-
-

@@ -1,0 +1,4 @@
+jdbc:mysql://<machineName>:<port>/
+<database name>
+<userName>
+<password>

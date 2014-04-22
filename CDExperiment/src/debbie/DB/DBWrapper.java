@@ -3,6 +3,8 @@ package debbie.DB;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.DriverManager;
+
 import java.io.IOException;
 import java.io.FileReader;
 import java.io.BufferedReader;
@@ -23,7 +25,7 @@ public class DBWrapper
 	private String userName = null;
 	private String password = null;
 	
-	private Connection connect = null;
+	private Connection connection = null;
 	
 	/**
 	 * Initializes the DBWrapper by reading in the given file and getting the 
@@ -39,6 +41,49 @@ public class DBWrapper
 	}
 	
 	/**
+	 * Connect to the database.  The needed parameters should have come in with the 
+	 * creation of the class
+	 * 
+	 * @return true if able to connect to the database, false otherwise
+	 */
+	public Boolean connectToDB()
+	{
+		Boolean success = false;
+		
+		// there are values for everything, there should be no null pointer errors
+		if ((url != null) && (dbName != null) && (userName != null) 
+				&& (password != null))
+		{
+			try {
+				// load the driver
+				Class.forName(DRIVER).newInstance();
+				
+				// set up connection
+				connection = DriverManager.getConnection(url+dbName, userName, password);
+			}
+			catch (Exception ex)
+			{
+				System.out.println("Problem connecting to the database.\n" + ex);
+			}
+		}
+		return success;
+	}
+	
+	/**
+	 * Closes the database connection.
+	 */
+	public void closeDB()
+	{
+		try {
+			connection.close();
+		}
+		catch (SQLException sqle)
+		{
+			System.out.println("Problem closing database connectoin.\n" + sqle);
+		}
+	}
+	
+	/**
 	 * Internal main for testing and driving this class...for now...
 	 * 
 	 * @param args not used
@@ -47,6 +92,9 @@ public class DBWrapper
 	{
 		String fileLocation = "/Users/debbie/Workspaces/dbConnectionInfo.txt";
 		DBWrapper dbWrapper = new DBWrapper(fileLocation);
+		
+		dbWrapper.connectToDB();
+		dbWrapper.closeDB();
 	}
 	
 	/**

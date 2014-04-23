@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 
 import java.io.IOException;
 import java.io.FileReader;
@@ -36,8 +37,11 @@ public class DBWrapper
 	public DBWrapper(String fn)
 	{
 		Boolean readIn = readInFile(fn);
-		
-		System.out.println("readIn is " + readIn);
+
+		if (!readIn)
+		{
+			System.err.println("Unable to read in file parameters.");
+		}
 	}
 	
 	/**
@@ -63,7 +67,7 @@ public class DBWrapper
 			}
 			catch (Exception ex)
 			{
-				System.out.println("Problem connecting to the database.\n" + ex);
+				System.err.println("Problem connecting to the database.\n" + ex);
 			}
 		}
 		
@@ -85,8 +89,29 @@ public class DBWrapper
 		}
 		catch (SQLException sqle)
 		{
-			System.out.println("Problem closing database connectoin.\n" + sqle);
+			System.err.println("Problem closing database connectoin.\n" + sqle);
 		}
+	}
+	
+	/**
+	 * Takes any query, submits it to the database and returns the result set.
+	 * This can be dangerous.  Really only use for testing purposes.
+	 * 
+	 * @param query the query to send to the database.
+	 * @return a ResultSet containing the results of the query
+	 */
+	public ResultSet queryVerbatim(String query)
+	{
+		ResultSet resultSet = null;
+		try {
+			Statement statement = connection.createStatement();
+		}
+		catch (SQLException sqle)
+		{
+			System.err.println("Problem querying verbatim.\n" + sqle);
+		}
+		
+		return resultSet;
 	}
 	
 	/**
@@ -137,8 +162,8 @@ public class DBWrapper
 		}
 		catch (IOException ioe)
 		{
-			System.out.println("There is a problem reading in " + fn + ".");
-			System.out.println(ioe);
+			System.err.println("There is a problem reading in " + fn + ".");
+			System.err.println(ioe);
 		}
 		
 		return readInFile;

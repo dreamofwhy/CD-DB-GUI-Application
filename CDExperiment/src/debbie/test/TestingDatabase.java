@@ -9,6 +9,11 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import debbie.DB.DBWrapper;
 
 /**
@@ -37,12 +42,40 @@ public class TestingDatabase
 	@Test
 	public void testDatabaseQuery()
 	{
-		// information_schema, CDCollection
+		String query = "show tables";
+		
+		String albums = "Albums";
+		String artists = "Artists";
+		String songs = "Songs";
+		String songsOnAlbums = "SongsOnAlbums";
+		String songsPerformedByArtists = "SongsPerformedByArtists";
+		String songsWrittenByArtists = "SongsWrittenByArtists";
+		ArrayList<String> tableList = new ArrayList<String>(Arrays.asList(new String[]{
+				albums, artists, songs, songsOnAlbums, songsPerformedByArtists,
+				songsWrittenByArtists
+		}));
+	
 		DBWrapper dbWrapper = new DBWrapper(FILELOCATION);
 		dbWrapper.connectToDB();
 		
-		// assert verbatim test query returns two items
+		ResultSet resultSet = dbWrapper.queryVerbatim(query);
 		
+		// assert verbatim test query returns the list of tables
+		try {
+			while (resultSet.next())
+			{
+				String name  = resultSet.getString(1);
+				assertTrue("Not in list " + name, tableList.contains(name));
+			}
+		}
+		catch (SQLException sqle)
+		{
+			System.err.println("Error with test query." + sqle);
+		}
+		catch (java.lang.NullPointerException npe)
+		{
+			System.err.println("The resultSet is null.");
+		}
 		dbWrapper.closeDB();
 	}
 

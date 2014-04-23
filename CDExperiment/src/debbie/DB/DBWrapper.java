@@ -105,6 +105,7 @@ public class DBWrapper
 		ResultSet resultSet = null;
 		try {
 			Statement statement = connection.createStatement();
+			resultSet = statement.executeQuery(query);
 		}
 		catch (SQLException sqle)
 		{

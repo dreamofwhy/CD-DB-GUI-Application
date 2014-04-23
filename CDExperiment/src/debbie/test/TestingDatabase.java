@@ -65,16 +65,18 @@ public class TestingDatabase
 			while (resultSet.next())
 			{
 				String name  = resultSet.getString(1);
+				//System.out.println(name);
 				assertTrue("Not in list " + name, tableList.contains(name));
 			}
 		}
 		catch (SQLException sqle)
 		{
 			System.err.println("Error with test query." + sqle);
+			fail("Could not execute query");
 		}
 		catch (java.lang.NullPointerException npe)
 		{
-			System.err.println("The resultSet is null.");
+			fail("The resultSet is null.");
 		}
 		dbWrapper.closeDB();
 	}

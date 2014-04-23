@@ -66,6 +66,12 @@ public class DBWrapper
 				System.out.println("Problem connecting to the database.\n" + ex);
 			}
 		}
+		
+		if (connection != null)
+		{
+			success = true;
+		}
+		
 		return success;
 	}
 	
@@ -81,20 +87,6 @@ public class DBWrapper
 		{
 			System.out.println("Problem closing database connectoin.\n" + sqle);
 		}
-	}
-	
-	/**
-	 * Internal main for testing and driving this class...for now...
-	 * 
-	 * @param args not used
-	 */
-	public static void main (String[] args)
-	{
-		String fileLocation = "/Users/debbie/Workspaces/dbConnectionInfo.txt";
-		DBWrapper dbWrapper = new DBWrapper(fileLocation);
-		
-		dbWrapper.connectToDB();
-		dbWrapper.closeDB();
 	}
 	
 	/**

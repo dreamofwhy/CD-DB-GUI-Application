@@ -55,6 +55,11 @@ public class Album
 		return mYear;
 	}
 	
+	/**
+	 * Converts Album into a string
+	 * 
+	 * @return  a string representation of the Album
+	 */
 	public String toString()
 	{
 		return mTitle + ", " + mYear;

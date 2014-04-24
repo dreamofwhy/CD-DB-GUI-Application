@@ -32,7 +32,13 @@ public class TestingDataStructures
 	@Test
 	public void artistTest()
 	{
+		String title = "Another stupid song";
 		
+		Song mySong = new Song(title);
+		
+		assertEquals("The song name is wrong", title, mySong.getName());
+		
+		System.out.println(mySong);
 	}
 	
 	@Test

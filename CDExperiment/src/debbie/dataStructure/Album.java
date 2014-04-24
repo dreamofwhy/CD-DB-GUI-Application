@@ -4,7 +4,7 @@ package debbie.dataStructure;
  * A class to hold album information
  * 
  * @author debbie heisler
- *
+ * @version 1.0
  */
 
 public class Album 

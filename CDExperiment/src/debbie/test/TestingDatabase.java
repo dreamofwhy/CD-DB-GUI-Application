@@ -20,6 +20,7 @@ import debbie.DB.DBWrapper;
  * Tests for debbie.DB.DBWrapper
  * 
  * @author debbie heisler
+ * @version 1.0
  */
 @RunWith(JUnit4.class)
 public class TestingDatabase 

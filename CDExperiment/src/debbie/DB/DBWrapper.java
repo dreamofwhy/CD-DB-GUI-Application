@@ -15,7 +15,7 @@ import java.io.BufferedReader;
  * return the data in a data structure.
  * 
  * @author debbie heisler
- *
+ * @version 1.0
  */
 public class DBWrapper 
 {

@@ -4,6 +4,7 @@ package debbie.test;
  * Tests the various data structures
  * 
  * @author debbie heisler
+ * @version 1.0
  */
 
 import static org.junit.Assert.*;

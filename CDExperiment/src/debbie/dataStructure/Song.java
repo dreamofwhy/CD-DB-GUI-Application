@@ -36,6 +36,7 @@ public class Song
 	 * 
 	 * @return the song as a string
 	 */
+	@Override
 	public String toString()
 	{
 		return mName;

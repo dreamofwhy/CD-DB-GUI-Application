@@ -36,6 +36,7 @@ public class Artist
 	 * 
 	 * @return the name of the artist
 	 */
+	@Override
 	public String toString()
 	{
 		return mName;
@@ -48,8 +49,9 @@ public class Artist
 	 * @return true if the artist names are equal to each other, 
 	 * false otherwise
 	 */
-	public boolean equals(Artist other)
+	@Override
+	public boolean equals(Object other)
 	{
-		return mName.equals(other.getName());
+		return mName.equals(((Artist)other).getName());
 	}
 }

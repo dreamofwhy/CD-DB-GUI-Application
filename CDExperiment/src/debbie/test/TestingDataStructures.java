@@ -52,6 +52,7 @@ public class TestingDataStructures
 		
 		assertEquals("The artist is not the artist", name1, myArtist1.getName());
 		assertFalse("These are supposed to not be the same", myArtist1.equals(myArtist2));
+		assertNotEquals("These are supposed to be different", myArtist1, myArtist2);
 		
 		System.out.println(myArtist1);
 	}

@@ -60,6 +60,7 @@ public class Album
 	 * 
 	 * @return  a string representation of the Album
 	 */
+	@Override
 	public String toString()
 	{
 		return mTitle + ", " + mYear;

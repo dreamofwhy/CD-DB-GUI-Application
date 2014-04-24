@@ -30,7 +30,7 @@ public class TestingDataStructures
 	}
 	
 	@Test
-	public void artistTest()
+	public void songTest()
 	{
 		String title = "Another stupid song";
 		
@@ -42,9 +42,18 @@ public class TestingDataStructures
 	}
 	
 	@Test
-	public void songTest()
+	public void artistTest()
 	{
+		String name1 = "Bob Dylan";
+		String name2 = "Tori Amos";
 		
+		Artist myArtist1 = new Artist(name1);
+		Artist myArtist2 = new Artist(name2);
+		
+		assertEquals("The artist is not the artist", name1, myArtist1.getName());
+		assertFalse("These are supposed to not be the same", myArtist1.equals(myArtist2));
+		
+		System.out.println(myArtist1);
 	}
 
 }

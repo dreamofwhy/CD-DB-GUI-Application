@@ -1,5 +1,55 @@
 package debbie.dataStructure;
 
-public class Artist {
+/**
+ * A class to hold artist information
+ * 
+ * @author debbie heisler
+ *
+ */
 
+public class Artist 
+{
+	String mName = null;
+	
+	/**
+	 * Constructs a new Artist
+	 * 
+	 * @param name the name of the artist
+	 */
+	public Artist(String name)
+	{
+		mName = name;
+	}
+	
+	/**
+	 * Returns the name of the artist
+	 * 
+	 * @return name of the artist
+	 */
+	public String getName()
+	{
+		return mName;
+	}
+	
+	/**
+	 * Converst an artist to a string
+	 * 
+	 * @return the name of the artist
+	 */
+	public String toString()
+	{
+		return mName;
+	}
+	
+	/**
+	 * Compares two artists to see if they are the same by comparing
+	 * the names of each of the artists
+	 * @param other the other artists to compare
+	 * @return true if the artist names are equal to each other, 
+	 * false otherwise
+	 */
+	public boolean equals(Artist other)
+	{
+		return mName.equals(other.getName());
+	}
 }

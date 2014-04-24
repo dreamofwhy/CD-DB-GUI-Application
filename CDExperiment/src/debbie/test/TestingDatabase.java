@@ -19,7 +19,7 @@ import debbie.DB.DBWrapper;
 /**
  * Tests for debbie.DB.DBWrapper
  * 
- * @author debbie
+ * @author debbie heisler
  */
 @RunWith(JUnit4.class)
 public class TestingDatabase 
@@ -80,5 +80,4 @@ public class TestingDatabase
 		}
 		dbWrapper.closeDB();
 	}
-
 }

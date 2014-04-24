@@ -10,4 +10,8 @@ The sql to create the MySQL database is in the Database directory.
 
 NOTES on dbConnectionInfo.txt
 ======================================
-This file contains the information you will need in order to connect to the database.  Anything with <> around it means you have to fill in the proper information. One string on each line. If you change the name of the file or location of the file (which you might wnat to do) you will need to change the code in DBWrapper.java to find it. 
+This file contains the information you will need in order to connect to the database.  Anything with <> around it means you have to fill in the proper information. One string on each line.  You will need to change the location of this file in the code to where you put it. 
+
+NOTES on added .jar files
+==========================
+The license in this repository is only for the code I created.  Any included jar file acts under the license of that jar file.

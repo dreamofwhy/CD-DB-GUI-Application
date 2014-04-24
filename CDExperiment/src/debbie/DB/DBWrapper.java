@@ -14,17 +14,17 @@ import java.io.BufferedReader;
  * A wrapper class for the database.  This class will send queries to the database and
  * return the data in a data structure.
  * 
- * @author debbie
+ * @author debbie heisler
  *
  */
 public class DBWrapper 
 {
 	private static String DRIVER = "com.mysql.jdbc.Driver";
 	
-	private String url = null;
-	private String dbName = null;
-	private String userName = null;
-	private String password = null;
+	private String mUrl = null;
+	private String mDBName = null;
+	private String mUserName = null;
+	private String mPassword = null;
 	
 	private Connection connection = null;
 	
@@ -55,15 +55,15 @@ public class DBWrapper
 		Boolean success = false;
 		
 		// there are values for everything, there should be no null pointer errors
-		if ((url != null) && (dbName != null) && (userName != null) 
-				&& (password != null))
+		if ((mUrl != null) && (mDBName != null) && (mUserName != null) 
+				&& (mPassword != null))
 		{
 			try {
 				// load the driver
 				Class.forName(DRIVER).newInstance();
 				
 				// set up connection
-				connection = DriverManager.getConnection(url+dbName, userName, password);
+				connection = DriverManager.getConnection(mUrl+mDBName, mUserName, mPassword);
 			}
 			catch (Exception ex)
 			{
@@ -138,26 +138,26 @@ public class DBWrapper
 			
 			if ((line = fileReader.readLine()) != null)
 			{
-				url = line.trim();
+				mUrl = line.trim();
 			}
 			
 			if ((line = fileReader.readLine()) != null)
 			{
-				dbName = line.trim();
+				mDBName = line.trim();
 			}
 			
 			if ((line = fileReader.readLine()) != null)
 			{
-				userName = line.trim();
+				mUserName = line.trim();
 			}
 			
 			if ((line = fileReader.readLine()) != null)
 			{
-				password = line.trim();
+				mPassword = line.trim();
 			}
 			
-			readInFile = (url != null) && (dbName != null) && 
-					(userName != null) && (password != null);
+			readInFile = (mUrl != null) && (mDBName != null) && 
+					(mUserName != null) && (mPassword != null);
 			
 			fileReader.close();
 		}

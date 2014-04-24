@@ -25,6 +25,8 @@ public class TestingDataStructures
 		
 		assertEquals("The album title is wrong", title, myAlbum.getTitle());
 		assertEquals("The year is wrong", new Integer(year), myAlbum.getYear());
+		
+		System.out.println(myAlbum);
 	}
 	
 	@Test

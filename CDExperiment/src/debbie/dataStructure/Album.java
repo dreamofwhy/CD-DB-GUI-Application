@@ -54,4 +54,9 @@ public class Album
 	{
 		return mYear;
 	}
+	
+	public String toString()
+	{
+		return mTitle + ", " + mYear;
+	}
 }
